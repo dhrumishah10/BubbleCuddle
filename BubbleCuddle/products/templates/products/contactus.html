@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | BubbleCuddle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-soap: #e0f7fa;
+            --bubble-pink: #fce4ec;
+            --accent-teal: #4db6ac;
+            --text-dark: #2d3436;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-soap) 0%, #ffffff 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated Bubble Background */
+        .bubble-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: float 15s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            30% { opacity: 0.8; }
+            100% { transform: translateY(-1000px) scale(1.5); opacity: 0; }
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* Content Styling */
+        .brand-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 10px;
+        }
+
+        .brand-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #636e72;
+        }
+
+        .product-preview {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-preview:hover {
+            transform: scale(1.02);
+        }
+
+        .product-preview img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Form Styling */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f1f2f6;
+            border-radius: 12px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-teal);
+        }
+
+        button {
+            background: var(--accent-teal);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #399d93;
+            box-shadow: 0 10px 20px rgba(77, 182, 172, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-details {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bubble-bg" id="bubble-container"></div>
+
+    <div class="container">
+        <div class="brand-info animate__animated animate__fadeInLeft">
+            <h1>BubbleCuddle</h1>
+            <p>Wrap yourself in a cloud of comfort. Our organic bath essentials are designed to turn your daily routine into a sanctuary of relaxation.</p>
+            
+            <div class="product-preview animate__animated animate__zoomIn animate__delay-1s">
+                <img src="https://www.shutterstock.com/image-vector/happy-panda-bear-taking-relaxing-600nw-2718959439.jpg" alt="Bath Salts and Soap">
+            </div>
+
+            <div class="contact-details">
+                <div><strong>Email:</strong> hello@bubblecuddle.com</div>
+                <div><strong>Studio:</strong> 123 Soapy Lane, NY</div>
+            </div>
+        </div>
+
+        <div class="contact-form animate__animated animate__fadeInRight">
+            <h2 style="margin-top:0">Send us a Message</h2>
+            <form>
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="e.g. Jane Doe">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="jane@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Your Favorite Scent</label>
+                    <input type="text" placeholder="Lavender, Eucalyptus...">
+                </div>
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea rows="4" placeholder="How can we help you glow?"></textarea>
+                </div>
+                <button type="submit">Send Good Vibes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Generate random bubbles
+        const container = document.getElementById('bubble-container');
+        for (let i = 0; i < 15; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 60 + 20 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDelay = Math.random() * 10 + 's';
+            bubble.style.animationDuration = Math.random() * 10 + 10 + 's';
+            container.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>

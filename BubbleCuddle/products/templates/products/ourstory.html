@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | BubbleCuddle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
+        .bubble-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0%, rgba(233, 226, 226, 0.28) 90.1%);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+    </style>
+</head>
+<body class="bubble-bg text-gray-700">
+
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-48 h-48 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        
+        <div class="text-center z-10 px-4">
+            <h1 class="animate__animated animate__fadeInDown text-6xl md:text-8xl text-teal-600 mb-4">BubbleCuddle</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s text-xl md:text-2xl text-gray-500 italic">Where every bath feels like a warm hug.</p>
+            <div class="mt-8 animate__animated animate__bounceIn animate__delay-2s">
+                <span class="inline-block p-4 rounded-full bg-white shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate__animated animate__fadeInLeft">
+                <img src="https://as2.ftcdn.net/jpg/01/75/55/33/1000_F_175553396_iYamj4oLnl3s5ueblbj1r4Gy8CRDENVn.jpg" alt="Soft Bubbles" class="rounded-3xl shadow-2xl floating">
+            </div>
+            <div class="animate__animated animate__fadeInRight">
+                <h2 class="text-4xl text-teal-700 mb-6">A Sudsy Start</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Founded in 2023, BubbleCuddle began in a small kitchen with a simple mission: to turn the nightly bath routine into a sanctuary of comfort. We noticed that most products were either too chemical-heavy or just... boring.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    We spent 18 months perfecting our **"Cloud-Touch"** formula—ensuring that every bomb, salt, and lather feels as soft as a cuddle and smells like a dream.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white shadow-inner">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl text-teal-700 mb-16">The Bubble Promise</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-8 border border-teal-50 rounded-2xl hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-4">🌿</div>
+                    <h3 class="text-2xl mb-2 text-teal-600">100% Vegan</h3>
+                    <p>Cruelty-free ingredients that are kind to your skin and the planet.</p>
+                </div>
+                <div class="p-8 border border-teal-50 rounded-2xl hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-4">☁️</div>
+                    <h3 class="text-2xl mb-2 text-teal-600">Hypoallergenic</h3>
+                    <p>Designed for the most sensitive skin, from newborns to grandparents.</p>
+                </div>
+                <div class="p-8 border border-teal-50 rounded-2xl hover:shadow-xl transition duration-300">
+                    <div class="text-4xl mb-4">🌎</div>
+                    <h3 class="text-2xl mb-2 text-teal-600">Eco-Friendly</h3>
+                    <p>Our packaging is biodegradable because we love the Earth as much as we love baths.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="columns-1 md:columns-3 gap-4 space-y-4">
+                <img src="https://t.pimg.jp/080/522/299/1/80522299.jpg" class="rounded-xl shadow-md hover:scale-105 transition duration-500" alt="Bath Salt">
+                <img src="https://www.shutterstock.com/image-vector/serene-woman-her-eyes-closed-260nw-2649692253.jpg" class="rounded-xl shadow-md hover:scale-105 transition duration-500" alt="Towels">
+                <img src="https://us.123rf.com/450wm/goodstudio/goodstudio2207/goodstudio220700129/188678846-organic-eco-cosmetic-products-in-bottles-jars-for-hair-care-vegan-green-beauty-cosmetics-packs-of.jpg?ver=6" class="rounded-xl shadow-md hover:scale-105 transition duration-500" alt="Self Care">
+                <img src="https://www.shutterstock.com/image-vector/making-soap-natural-ingredients-handmade-260nw-2429783325.jpg" class="rounded-xl shadow-md hover:scale-105 transition duration-500" alt="Soap">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center bg-teal-50">
+        <h2 class="text-3xl text-teal-800 mb-6">Ready to jump in?</h2>
+        <button class="bg-teal-500 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-teal-600 transform hover:scale-110 transition duration-300 shadow-lg">
+            Shop the Collection
+        </button>
+        <p class="mt-10 text-gray-400 text-sm">© 2026 BubbleCuddle Essentials. Stay bubbly.</p>
+    </footer>
+
+</body>
+</html>

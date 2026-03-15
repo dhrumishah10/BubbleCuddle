@@ -1,305 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BubbleCuddle | Pure Sky Serenity</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    
-    <style>
-        :root {
-            --sky-blue: #87CEEB;
-            --ice-blue: #f0f8ff;
-            --deep-azure: #0077be;
-            --glass-white: rgba(255, 255, 255, 0.3);
-            --text-main: #2c3e50;
-        }
+<title>Products</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
 
-        body {
-            background: linear-gradient(180deg, #e0f2f1 0%, #87CEEB 100%);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
+body{
+    font-family: Arial;
+    background:#f5f5f5;
+}
 
-        /* --- Interactive Bubble Canvas --- */
-        #bubbleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-        /* --- Navigation --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-        }
+.card{
+    width:300px;
+    background:white;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
 
-        .logo {
-            font-family: 'Quicksand', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--deep-azure);
-            letter-spacing: -1px;
-        }
+.card:hover{
+    transform:scale(1.05);
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
+.name{
+    font-size:20px;
+    font-weight:bold;
+    color:#333;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--deep-azure);
-            font-weight: 600;
-            transition: 0.3s;
-        }
+.desc{
+    color:#666;
+    margin-top:10px;
+}
 
-        .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255,255,255,0.8);
-        }
+.price{
+    color:green;
+    font-size:22px;
+    margin-top:15px;
+    font-weight:bold;
+}
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 10%;
-        }
-
-        .hero-text h1 {
-            font-size: 4.5rem;
-            font-family: 'Quicksand', sans-serif;
-            line-height: 1;
-            margin-bottom: 25px;
-            color: #fff;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            color: #4a69bd;
-            max-width: 550px;
-            font-weight: 500;
-        }
-
-        .btn-main {
-            padding: 18px 45px;
-            background: white;
-            color: var(--deep-azure);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            display: inline-block;
-            border: 2px solid transparent;
-        }
-
-        .btn-main:hover {
-            background: var(--deep-azure);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .hero-visual {
-            position: relative;
-            width: 550px;
-            height: 550px;
-        }
-
-        .floating-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            border: 10px solid white;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
-            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-        }
-
-        /* --- Features Section --- */
-        .features {
-            padding: 100px 10%;
-            background: white;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            border-radius: 60px 60px 0 0;
-        }
-
-        .feature-box {
-            padding: 40px;
-            text-align: center;
-            background: var(--ice-blue);
-            border-radius: 30px;
-            transition: 0.3s;
-        }
-
-        .feature-box:hover {
-            transform: translateY(-15px);
-            background: #e1f5fe;
-        }
-
-        .feature-box img {
-            width: 80px;
-            margin-bottom: 20px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #1a2a3a;
-            color: white;
-            text-align: center;
-            padding: 60px;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 968px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
-            .hero-text h1 { font-size: 3rem; }
-            .hero-visual { width: 300px; height: 300px; margin-top: 40px; }
-            .nav-links { display: none; }
-        }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <canvas id="bubbleCanvas"></canvas>
+<h1 style="text-align:center;">Our Products</h1>
 
-    <nav>
-        <div class="logo">BubbleCuddle</div>
-        <ul class="nav-links">
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
-    </nav>
+<div class="container">
 
-    <section class="hero">
-        <div class="hero-text animate__animated animate__fadeInUp">
-            <h1>Softness <br>As Light As Air</h1>
-            <p>Experience the ultimate sky-blue sanctuary. Our bath essentials are infused with oxygenated minerals and airy foam for a weightless cleanse.</p>
-            <a href="#" class="btn-main">Dive In Now</a>
-        </div>
-        <div class="hero-visual animate__animated animate__zoomIn">
-            <img src="https://images.unsplash.com/photo-1559594801-64539659bd91?auto=format&fit=crop&w=800&q=80" alt="Bubbles" class="floating-img">
-        </div>
-    </section>
+{% for pro in prod %}
 
-    <section class="features">
-        <div class="feature-box reveal">
-            <img src="https://cdn-icons-png.flaticon.com/512/2851/2851016.png" alt="Cloud">
-            <h3>Cloud Foam</h3>
-            <p>Our unique formula creates a dense, whipped texture that feels like bathing in a cloud.</p>
-        </div>
-        <div class="feature-box reveal">
-            <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" alt="Water">
-            <h3>Pure Hydration</h3>
-            <p>Enriched with glacier water and Vitamin E to lock in moisture for 24 hours.</p>
-        </div>
-        <div class="feature-box reveal">
-            <img src="https://cdn-icons-png.flaticon.com/512/1598/1598191.png" alt="Leaf">
-            <h3>Eco-Breezy</h3>
-            <p>100% biodegradable ingredients and sky-friendly packaging to protect our planet.</p>
-        </div>
-    </section>
+<div class="card">
 
-    <footer>
-        <p>Made with love & bubbles &copy; 2026 BubbleCuddle Studios.</p>
-    </footer>
+<div class="name">{{pro.name}}</div>
 
-    <script>
-        // --- High-Performance Bubble Engine ---
-        const canvas = document.getElementById('bubbleCanvas');
-        const ctx = canvas.getContext('2d');
-        let bubbles = [];
+<div class="desc">{{pro.desc}}</div>
 
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
+<div class="price">₹ {{pro.price}}</div>
 
-        class Bubble {
-            constructor() {
-                this.reset();
-            }
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = canvas.height + Math.random() * 200;
-                this.radius = Math.random() * 40 + 5;
-                this.speed = Math.random() * 1 + 0.5;
-                this.opacity = Math.random() * 0.5;
-                this.sway = Math.random() * 2;
-            }
-            update() {
-                this.y -= this.speed;
-                this.x += Math.sin(this.y * 0.02) * this.sway;
-                if (this.y < -this.radius) this.reset();
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.strokeStyle = `rgba(255, 255, 255, 0.4)`;
-                ctx.lineWidth = 2;
-                ctx.fill();
-                ctx.stroke();
-            }
-        }
+</div>
 
-        for (let i = 0; i < 40; i++) bubbles.push(new Bubble());
+{% endfor %}
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            bubbles.forEach(b => {
-                b.update();
-                b.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
+</div>
 
-        // --- ScrollReveal Animations ---
-        ScrollReveal().reveal('.reveal', {
-            delay: 300,
-            distance: '60px',
-            origin: 'bottom',
-            duration: 1200,
-            interval: 200
-        });
-    </script>
 </body>
 </html>

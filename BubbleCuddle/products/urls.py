@@ -4,5 +4,4 @@ urlpatterns = [
     path('', views.home),
     path('ourstory/', views.ourstory),
      path('contactus/', views.contactus),
-
 ]
